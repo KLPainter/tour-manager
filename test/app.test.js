@@ -7,24 +7,24 @@ const app = require('../lib/app');
 
 describe('tour API', () => {
 
-    let sampleStop = {
-        location: {
-            city: 'Portland',
-            state: 'OR',
-            zip: '97229'
-        },
-        weather: {
-            temperature: '45 F',
-            condition: 'Rainy',
-            windSpeed: '5 mph'
-        },
-        attendance: 200
-    };
+    // let sampleStop = {
+    //     location: {
+    //         city: 'Portland',
+    //         state: 'OR',
+    //         zip: '97229'
+    //     },
+    //     weather: {
+    //         temperature: '45 F',
+    //         condition: 'Rainy',
+    //         windSpeed: '5 mph'
+    //     },
+    //     attendance: 200
+    // };
 
     let seedTours = [
-        { title: 'Tour Stop 1', activities: ['trapeze', 'pie eating'], launchDate: new Date('January 1, 2001'), stops: [sampleStop, sampleStop] },
-        { title: 'Tour Stop 2', activities: ['parade', 'clowns'], launchDate: new Date('February 1, 2002'), stops: [sampleStop, sampleStop] },
-        { title: 'Tour Stop 3', activities: ['tightrope', 'slack line'], launchDate: new Date('March 1, 2003'), stops: [sampleStop, sampleStop] }
+        { title: 'Tour Stop 1', activities: ['trapeze', 'pie eating'], launchDate: new Date('January 1, 2001'), stops: [] },
+        { title: 'Tour Stop 2', activities: ['parade', 'clowns'], launchDate: new Date('February 1, 2002'), stops: [] },
+        { title: 'Tour Stop 3', activities: ['tightrope', 'slack line'], launchDate: new Date('March 1, 2003'), stops: [] }
     ];
 
     let createdTours;
@@ -51,7 +51,7 @@ describe('tour API', () => {
     });
 
     it('creates a game on post', () => {
-        const newTour =  { title: 'Tour Stop 4', activities: ['darts', 'cat herding'], launchDate: new Date('April 1, 2004'), stops: [sampleStop, sampleStop] };
+        const newTour =  { title: 'Tour Stop 4', activities: ['darts', 'cat herding'], launchDate: new Date('April 1, 2004'), stops: [] };
         return request(app)
             .post('/tours')
             .send(newTour)
