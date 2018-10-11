@@ -4,4 +4,5 @@ services:
   - mongodb
 env:
   - MONGODB_URI=mongodb://localhost:27017/testDb
+  - WU_API_KEY=5e1af6276eda1937
   
