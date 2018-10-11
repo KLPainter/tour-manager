@@ -3,6 +3,6 @@ node_js: "10"
 services:
   - mongodb
 env:
-  - MONGODB_URI=mongodb://localhost:27017/testDb
+  - MONGODB_URI=mongodb://localhost:27017/db
   - WU_API_KEY=5e1af6276eda1937
   
