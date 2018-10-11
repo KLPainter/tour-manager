@@ -1,7 +1,7 @@
 const request = require('superagent');
 const apiKey = process.env.WU_API_KEY;
 
-if (!apiKey) {
+if(!apiKey) {
     console.log('No API key present!');
     process.exit(1);
 }
@@ -26,7 +26,7 @@ function processLocationData(data) {
         state: data.current_observation.display_location.state,
         country: data.current_observation.display_location.country,
         elevation: data.current_observation.display_location.elevation
-    }
+    };
 }
 
 const get = url => request.get(url).then(res => res.body);
@@ -38,4 +38,4 @@ module.exports = function getLocationWeather(zip) {
     ]).then(([weather, location]) => {
         return { weather, location };
     });
-}
+};

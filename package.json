@@ -1,0 +1,28 @@
+{
+  "name": "class11_express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "coverage": "jest --coverage --detectOpenHandles",
+    "jest": "jest --verbose",
+    "test": "npm run jest",
+    "test:watch": "npm run jest -- --watch",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.3.2"
+  },
+  "devDependencies": {
+    "dotenv": "^6.0.0",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.4",
+    "supertest": "^3.3.0"
+  }
+}
