@@ -62,4 +62,13 @@ describe('tour API', () => {
             });
     });
 
+    it('get a tour by id', () => {
+        const id = createdTours[1]._id;
+        return request(app)
+            .get(`/tours/${id}`)
+            .then(result => {
+                expect(result.body).toEqual(createdTours[1]);
+            });
+    });
+
 });
