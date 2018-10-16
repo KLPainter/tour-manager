@@ -1,4 +1,4 @@
-const connect = require('../lib/mongoose-connector');
+const connect = require('../lib/util/mongoose-connector');
 connect('mongodb://localhost:27017/tours-test');
 const mongoose = require('mongoose');
 
