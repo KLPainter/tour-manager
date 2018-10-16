@@ -29,10 +29,6 @@ describe('tour API', () => {
         });
     });
 
-    afterAll(() => {
-        return mongoose.disconnect();
-    });
-
     it('creates a tour on post', () => {
         const newTour =  { 
             title: 'Tour Stop 4', 
@@ -68,6 +64,36 @@ describe('tour API', () => {
             .get(`/tours/${id}`)
             .then(result => {
                 expect(result.body).toEqual(createdTours[1]);
+            });
+    });
+
+    it('posts a stop to a tour', () => {
+        const id = createdTours[1]._id;
+        const stop = { zip: '97229', attendance: 250 };
+        return request(app)
+            .post(`/tours/${id}/stops`)
+            .send(stop)
+            .then(result => {
+                expect(result.body).toEqual({
+                    ...createdTours[1],
+                    stops: [
+                        {
+                            location: {
+                                city: expect.any(String),
+                                state: expect.any(String),
+                                zip: stop.zip
+                            },
+                            weather: {
+                                temperature: expect.any(String),
+                                condition: expect.any(String),
+                                windSpeed: expect.any(String)
+                            },
+                            attendance: {
+                                type: stop.attendance,
+                            }
+                        }
+                    ],
+                });
             });
     });
 
