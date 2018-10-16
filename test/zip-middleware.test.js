@@ -1,5 +1,5 @@
 require('dotenv').config();
-const getZipCodeData = require('../lib/util/zipcode-weather');
+const getZipCodeData = require('../lib/util/zip-middleware');
 
 describe('test the middleware that uses weather api', () => {
 
