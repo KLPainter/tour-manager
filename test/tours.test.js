@@ -112,7 +112,6 @@ describe('tour API', () => {
             });
     });
 
-    // POST /tours/:id/stops/:stopId/attendance
     it('updates the attendance at a stop', () => {
         const tourId = createdTours[1]._id;
         const stop = { zip: '97212', attendance: 375 };
@@ -122,10 +121,10 @@ describe('tour API', () => {
             .then(tourWithStop => {
                 const stopId = tourWithStop.body.stops[0]._id;
                 return request(app)
-                    .put(`/tours/${tourId}/stops/${stopId}`)
+                    .put(`/tours/${tourId}/stops/${stopId}/attendance`)
                     .send({ attendance: 200 })
                     .then(result => {
-                        expect(result.body.attendance).toEqual(200);
+                        expect(result.body.stops[0].attendance).toEqual(200);
                     });
             });
 
